@@ -38,14 +38,7 @@ namespace Membros
 
         }
 
-        private void ExibeMembroBT_Click(object sender, EventArgs e)
-        {
-            {
-                var listaMembrosForm = new ExibirListaMembros();
-                listaMembrosForm.CarregarMembros();
-                listaMembrosForm.Show();
-            }
-        }
+       
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {

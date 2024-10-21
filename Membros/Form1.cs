@@ -1,7 +1,11 @@
+using MySql.Data.MySqlClient;
+using System.Runtime.CompilerServices;
+
 namespace Membros
 {
     public partial class Form1 : Form
     {
+        MySqlConnection Conexao;
         public Form1()
         {
             InitializeComponent();
@@ -18,14 +22,20 @@ namespace Membros
         }
 
         private void EntrarBt_Click(object sender, EventArgs e)
+
+
+
         {
+
+
             try
-            {
+{
                 if (UsuarioTxt.Text.Equals("Gabriel")
                     && SenhaTxt.Text.Equals("1234"))
                 { 
 
-                var menu = new MenuPrincipal();
+                var menu = new Cadastro();
+                    menu.CarregarMembros(); 
                     menu.Show(this);
 
                     this.Visible = false;
@@ -49,5 +59,11 @@ namespace Membros
                        MessageBoxIcon.Error);
             }
         }
+       
     }
+
+
+
+
+
 }

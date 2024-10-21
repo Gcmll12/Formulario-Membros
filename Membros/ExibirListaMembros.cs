@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Membros
 {
-    public partial class ExibirListaMembros : Form
+   /* public partial class ExibirListaMembros : Form
 
     {
         public ExibirListaMembros()
@@ -20,7 +20,7 @@ namespace Membros
             ConfiguraLista();
 
         }
-        private void ConfiguraLista()
+        public void ConfiguraLista()
         {
 
             ListaMembrosLVW.View = View.Details;
@@ -97,13 +97,13 @@ namespace Membros
 
             }
 
-        }
+        }*/
 
-        void ListaMembrosLVW_SelectedIndexChanged(object sender, EventArgs e)
-        {
+       // void ListaMembrosLVW_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
-    }
+      //  }
+   // }
 }
     
 

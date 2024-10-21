@@ -5,7 +5,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -26,35 +26,20 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
-            ListaMembrosLVW = new ListView();
             SuspendLayout();
-            // 
-            // ListaMembrosLVW
-            // 
-            ListaMembrosLVW.AutoArrange = false;
-            ListaMembrosLVW.BackColor = SystemColors.ButtonFace;
-            ListaMembrosLVW.Location = new Point(53, 45);
-            ListaMembrosLVW.Name = "ListaMembrosLVW";
-            ListaMembrosLVW.Size = new Size(461, 379);
-            ListaMembrosLVW.TabIndex = 0;
-            ListaMembrosLVW.UseCompatibleStateImageBehavior = false;
-          //  ListaMembrosLVW.SelectedIndexChanged += ListaMembrosLVW_SelectedIndexChanged;
             // 
             // ExibirListaMembros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(ListaMembrosLVW);
             Name = "ExibirListaMembros";
             Text = "ExibirListaMembros";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ListView ListaMembrosLVW;
     }
 }

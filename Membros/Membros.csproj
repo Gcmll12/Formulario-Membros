@@ -9,11 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ExibirListaMembros.cs" />
+    <Compile Remove="ExibirListaMembros.Designer.cs" />
+    <Compile Remove="MenuPrincipal.cs" />
+    <Compile Remove="MenuPrincipal.Designer.cs" />
     <Compile Remove="VerListaMembros.cs" />
     <Compile Remove="VerListaMembros.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="ExibirListaMembros.resx" />
+    <EmbeddedResource Remove="MenuPrincipal.resx" />
     <EmbeddedResource Remove="VerListaMembros.resx" />
   </ItemGroup>
 

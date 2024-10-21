@@ -31,10 +31,6 @@
             CadastraMembroBT = new Button();
             ExibeMembroBT = new Button();
             groupBox1 = new GroupBox();
-            HistoricoMembroBT = new Button();
-            ImprimeMembroBT = new Button();
-            ModificaMembroBT = new Button();
-            ExcluiMembroBT = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,14 +54,10 @@
             ExibeMembroBT.TabIndex = 1;
             ExibeMembroBT.Text = "Exibir Lista de Membros";
             ExibeMembroBT.UseVisualStyleBackColor = true;
-            ExibeMembroBT.Click += ExibeMembroBT_Click;
+         
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(HistoricoMembroBT);
-            groupBox1.Controls.Add(ImprimeMembroBT);
-            groupBox1.Controls.Add(ModificaMembroBT);
-            groupBox1.Controls.Add(ExcluiMembroBT);
             groupBox1.Controls.Add(ExibeMembroBT);
             groupBox1.Controls.Add(CadastraMembroBT);
             groupBox1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -76,43 +68,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Selecione Uma Opção:";
             groupBox1.Enter += groupBox1_Enter;
-            // 
-            // HistoricoMembroBT
-            // 
-            HistoricoMembroBT.Location = new Point(260, 171);
-            HistoricoMembroBT.Name = "HistoricoMembroBT";
-            HistoricoMembroBT.Size = new Size(141, 105);
-            HistoricoMembroBT.TabIndex = 5;
-            HistoricoMembroBT.Text = "Ver Histórico Membresia";
-            HistoricoMembroBT.UseVisualStyleBackColor = true;
-            // 
-            // ImprimeMembroBT
-            // 
-            ImprimeMembroBT.Location = new Point(420, 171);
-            ImprimeMembroBT.Name = "ImprimeMembroBT";
-            ImprimeMembroBT.Size = new Size(141, 105);
-            ImprimeMembroBT.TabIndex = 4;
-            ImprimeMembroBT.Text = "Imprimir Lista Membros";
-            ImprimeMembroBT.UseVisualStyleBackColor = true;
-            // 
-            // ModificaMembroBT
-            // 
-            ModificaMembroBT.Location = new Point(101, 171);
-            ModificaMembroBT.Name = "ModificaMembroBT";
-            ModificaMembroBT.Size = new Size(141, 105);
-            ModificaMembroBT.TabIndex = 3;
-            ModificaMembroBT.Text = "Modificar Membro";
-            ModificaMembroBT.UseVisualStyleBackColor = true;
-            // 
-            // ExcluiMembroBT
-            // 
-            ExcluiMembroBT.Location = new Point(420, 45);
-            ExcluiMembroBT.Name = "ExcluiMembroBT";
-            ExcluiMembroBT.Size = new Size(141, 105);
-            ExcluiMembroBT.TabIndex = 2;
-            ExcluiMembroBT.Text = "Excluir Membro";
-            ExcluiMembroBT.UseVisualStyleBackColor = true;
-            ExcluiMembroBT.Click += ExcluiMembroBT_Click;
             // 
             // MenuPrincipal
             // 
@@ -131,9 +86,5 @@
         private Button CadastraMembroBT;
         private Button ExibeMembroBT;
         private GroupBox groupBox1;
-        private Button ExcluiMembroBT;
-        private Button HistoricoMembroBT;
-        private Button ImprimeMembroBT;
-        private Button ModificaMembroBT;
     }
 }
