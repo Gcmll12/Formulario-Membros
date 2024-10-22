@@ -16,8 +16,10 @@ namespace Membros
     public partial class Cadastro : Form
 
     {
+        private string? id_MemBro_Selecionado = null;
         public MySqlConnection Conexao;
         public Cadastro()
+
         {
             InitializeComponent();
             this.Load += new EventHandler(Cadastro_Load);
@@ -115,6 +117,8 @@ namespace Membros
             try
             {
 
+
+
                 string data_source = "datasource=localhost;username=root;password=admin;database=cadastro";
 
                 Conexao = new MySqlConnection(data_source);
@@ -123,27 +127,77 @@ namespace Membros
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao;
 
-                cmd.CommandText = "INSERT INTO membro(nome,sexo,cpf,idade,datarecepcao,modorecepcao) VALUES (@nome,@sexo,@cpf,@idade,@datarecepcao,@modorecepcao)";
+                if (id_MemBro_Selecionado != null)
+                {
+                    //update
 
 
-                cmd.Parameters.AddWithValue("@nome", NomeTxt.Text);
-                cmd.Parameters.AddWithValue("@sexo", SexoTxt.Text);
-                cmd.Parameters.AddWithValue("@cpf", CPFTxt.Text);
-                cmd.Parameters.AddWithValue("@idade", IdadeTxt.Text);
-                cmd.Parameters.AddWithValue("@datarecepcao", DataRecTxt.Text);
-                cmd.Parameters.AddWithValue("@modorecepcao", ModoRecTxt.Text);
-
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
+                    cmd.CommandText = "UPDATE membro SET " +
+                        "nome=@nome,sexo=@sexo,idade=@idade,datarecepcao=@datarecepcao,modorecepcao=@modorecepcao WHERE cpf= @cpf";
 
 
+                    cmd.Parameters.AddWithValue("@nome", NomeTxt.Text);
+                    cmd.Parameters.AddWithValue("@sexo", SexoTxt.Text);
+                    cmd.Parameters.AddWithValue("@cpf", id_MemBro_Selecionado);
+                    cmd.Parameters.AddWithValue("@idade", IdadeTxt.Text);
+                    cmd.Parameters.AddWithValue("@datarecepcao", DataRecTxt.Text);
+                    cmd.Parameters.AddWithValue("@modorecepcao", ModoRecTxt.Text);
+
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
 
 
 
 
 
-                MessageBox.Show("Membro Registrado");
+
+
+                    MessageBox.Show("Contato atualizado com sucesso");
+                }
+
+
+
+                else
+                {
+                    cmd.CommandText = "INSERT INTO membro(nome,sexo,cpf,idade,datarecepcao,modorecepcao) VALUES (@nome,@sexo,@cpf,@idade,@datarecepcao,@modorecepcao)";
+
+
+                    cmd.Parameters.AddWithValue("@nome", NomeTxt.Text);
+                    cmd.Parameters.AddWithValue("@sexo", SexoTxt.Text);
+                    cmd.Parameters.AddWithValue("@cpf", CPFTxt.Text);
+                    cmd.Parameters.AddWithValue("@idade", IdadeTxt.Text);
+                    cmd.Parameters.AddWithValue("@datarecepcao", DataRecTxt.Text);
+                    cmd.Parameters.AddWithValue("@modorecepcao", ModoRecTxt.Text);
+
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+
+
+
+
+
+
+
+                    MessageBox.Show("Membro Registrado");
+                }
+
+
+                id_MemBro_Selecionado = null;
+                NomeTxt.Text = String.Empty;
+                SexoTxt.Text = "";
+                CPFTxt.Text = "";
+                IdadeTxt.Text = "";
+                DataRecTxt.Text = "";
+                ModoRecTxt.Text = "";
+
+                CarregarMembros();
+
             }
+
+
+
+
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -165,11 +219,30 @@ namespace Membros
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        public void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ListView.SelectedListViewItemCollection itens_selecionados = ListaMembrosLVW.SelectedItems;
+
+            foreach (ListViewItem item in itens_selecionados)
+            {
+
+
+                id_MemBro_Selecionado = (item.SubItems[2].Text);
+
+
+                NomeTxt.Text = item.SubItems[0].Text;
+                SexoTxt.Text = item.SubItems[1].Text;
+                CPFTxt.Text = item.SubItems[2].Text;
+                IdadeTxt.Text = item.SubItems[3].Text;
+                DataRecTxt.Text = item.SubItems[4].Text;
+                ModoRecTxt.Text = item.SubItems[5].Text;
 
 
 
+
+
+
+            }
 
         }
 
@@ -182,6 +255,18 @@ namespace Membros
         {
             CarregarMembros();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            id_MemBro_Selecionado = null;
+                 NomeTxt.Text = String.Empty;
+            SexoTxt.Text = "";
+            CPFTxt.Text = "";
+            IdadeTxt.Text = "";
+            DataRecTxt.Text = "";
+            ModoRecTxt.Text = "";
+            NomeTxt.Focus();
         }
     }
 }

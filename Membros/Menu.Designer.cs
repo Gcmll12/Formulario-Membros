@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            NovoBT = new Button();
             label1 = new Label();
             NomeTxt = new TextBox();
             SexoTxt = new TextBox();
@@ -53,18 +53,19 @@
             radioButton1 = new RadioButton();
             label8 = new Label();
             AtualizaListaBT = new Button();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // NovoBT
             // 
-            button1.Location = new Point(90, 580);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Registrar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            NovoBT.Location = new Point(175, 583);
+            NovoBT.Name = "NovoBT";
+            NovoBT.Size = new Size(75, 23);
+            NovoBT.TabIndex = 0;
+            NovoBT.Text = "Registrar";
+            NovoBT.UseVisualStyleBackColor = true;
+            NovoBT.Click += button1_Click;
             // 
             // label1
             // 
@@ -172,6 +173,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(ModoRecTxt);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(DataRecTxt);
@@ -183,7 +185,7 @@
             groupBox1.Controls.Add(radioButton1);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(IdadeTxt);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(NovoBT);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(NomeTxt);
             groupBox1.Controls.Add(label1);
@@ -303,6 +305,16 @@
             AtualizaListaBT.UseVisualStyleBackColor = true;
             AtualizaListaBT.Click += AtualizaListaBT_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(63, 583);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 20;
+            button2.Text = "Novo";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Cadastro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -325,7 +337,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button NovoBT;
         private Label label1;
         private TextBox NomeTxt;
         private TextBox SexoTxt;
@@ -350,5 +362,6 @@
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Button AtualizaListaBT;
+        private Button button2;
     }
 }
