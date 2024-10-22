@@ -70,7 +70,7 @@
             Usuario.Size = new Size(50, 15);
             Usuario.TabIndex = 3;
             Usuario.Text = "Usuário:";
-            Usuario.Click += label1_Click;
+           // Usuario.Click += label1_Click;
             // 
             // Senha
             // 

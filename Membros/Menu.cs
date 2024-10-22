@@ -16,6 +16,8 @@ namespace Membros
     public partial class Cadastro : Form
 
     {
+        string data_source = "datasource=localhost;username=root;password=admin;database=cadastro";
+
         private string? id_MemBro_Selecionado = null;
         public MySqlConnection Conexao;
         public Cadastro()
@@ -112,7 +114,7 @@ namespace Membros
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -182,13 +184,7 @@ namespace Membros
                 }
 
 
-                id_MemBro_Selecionado = null;
-                NomeTxt.Text = String.Empty;
-                SexoTxt.Text = "";
-                CPFTxt.Text = "";
-                IdadeTxt.Text = "";
-                DataRecTxt.Text = "";
-                ModoRecTxt.Text = "";
+                LimpaLista();
 
                 CarregarMembros();
 
@@ -237,7 +233,7 @@ namespace Membros
                 DataRecTxt.Text = item.SubItems[4].Text;
                 ModoRecTxt.Text = item.SubItems[5].Text;
 
-
+                ExcluirBT.Visible = true;
 
 
 
@@ -257,16 +253,72 @@ namespace Membros
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+        public void LimpaLista() {
+
             id_MemBro_Selecionado = null;
-                 NomeTxt.Text = String.Empty;
+            NomeTxt.Text = String.Empty;
             SexoTxt.Text = "";
             CPFTxt.Text = "";
             IdadeTxt.Text = "";
             DataRecTxt.Text = "";
             ModoRecTxt.Text = "";
-            NomeTxt.Focus();
+            ExcluirBT.Visible = false;
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LimpaLista();
+        }
+
+        public void ExcluirBT_Click(object sender, EventArgs e)
+        {
+
+            try {
+
+                DialogResult conf = MessageBox.Show("Deseja Realmente Excluir?",
+                                                      "Atenção! Esta Ação Não Tem Volta",
+                                                      MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+                if (conf==DialogResult.Yes) {
+
+                    Conexao = new MySqlConnection(data_source);
+                    Conexao.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = Conexao;
+
+                    cmd.CommandText = "DELETE FROM membro WHERE cpf= @cpf ";
+                      
+                    cmd.Parameters.AddWithValue("@cpf", id_MemBro_Selecionado);
+                   
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Membro Excluído Com Sucesso!",
+                        "Sucesso",MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    CarregarMembros();
+                    LimpaLista();
+                }
+            
+            
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show("Erro"+ex.Number +"Ocorreu:" + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            }
+            finally {
+
+                Conexao.Close();
+            
+            }
+
+
+
         }
     }
 }

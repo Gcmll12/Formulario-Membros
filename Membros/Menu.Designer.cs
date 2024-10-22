@@ -42,6 +42,8 @@
             label6 = new Label();
             label7 = new Label();
             groupBox1 = new GroupBox();
+            ExcluirBT = new Button();
+            button2 = new Button();
             ModoRecTxt = new TextBox();
             label11 = new Label();
             DataRecTxt = new TextBox();
@@ -53,13 +55,12 @@
             radioButton1 = new RadioButton();
             label8 = new Label();
             AtualizaListaBT = new Button();
-            button2 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // NovoBT
             // 
-            NovoBT.Location = new Point(175, 583);
+            NovoBT.Location = new Point(178, 583);
             NovoBT.Name = "NovoBT";
             NovoBT.Size = new Size(75, 23);
             NovoBT.TabIndex = 0;
@@ -173,6 +174,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(ExcluirBT);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(ModoRecTxt);
             groupBox1.Controls.Add(label11);
@@ -199,6 +201,27 @@
             groupBox1.Size = new Size(309, 687);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
+            // 
+            // ExcluirBT
+            // 
+            ExcluirBT.Location = new Point(97, 583);
+            ExcluirBT.Name = "ExcluirBT";
+            ExcluirBT.Size = new Size(75, 23);
+            ExcluirBT.TabIndex = 21;
+            ExcluirBT.Text = "Excluir";
+            ExcluirBT.UseVisualStyleBackColor = true;
+            ExcluirBT.Visible = false;
+            ExcluirBT.Click += ExcluirBT_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(16, 583);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 20;
+            button2.Text = "Novo";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // ModoRecTxt
             // 
@@ -305,20 +328,11 @@
             AtualizaListaBT.UseVisualStyleBackColor = true;
             AtualizaListaBT.Click += AtualizaListaBT_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(63, 583);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 20;
-            button2.Text = "Novo";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // Cadastro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1154, 766);
             Controls.Add(AtualizaListaBT);
             Controls.Add(groupBox1);
@@ -363,5 +377,6 @@
         private RadioButton radioButton1;
         private Button AtualizaListaBT;
         private Button button2;
+        private Button ExcluirBT;
     }
 }

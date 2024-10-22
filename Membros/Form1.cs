@@ -11,10 +11,7 @@ namespace Membros
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void CancelarBt_Click(object sender, EventArgs e)
         {
